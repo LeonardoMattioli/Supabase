@@ -1,0 +1,15 @@
+name: Pull Request
+
+on: [pull_request]
+
+jobs:
+  login:
+    name: Logando no Supabase
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Enviroment Variable
+      - run: SUPABASE_ACCESS_TOKEN=sbp_c14eed08fe0725ebe79b5583a82218f8476fd334
+      
