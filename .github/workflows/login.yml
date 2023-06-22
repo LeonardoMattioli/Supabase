@@ -1,14 +1,26 @@
-name: Pull Request
+name: Release
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  login:
-    name: Logando no Supabase
+  release:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
 
-      - name: Enviroment Variable
-      - run: npx supabase db push
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.PRODUCTION_DB_PASSWORD }}
+      PROJECT_ID: jgcajpecsmkatlbzsstn
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - run: supabase link --project-ref $PROJECT_ID
+      - run: supabase db push
