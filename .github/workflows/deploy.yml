@@ -31,6 +31,8 @@ jobs:
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      NEXT_PUBLIC_SUPABASE_URL: https://zudydtjvzjmzaxdgdsmt.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1ZHlkdGp2emptemF4ZGdkc210Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY4NTI0NjksImV4cCI6MjAwMjQyODQ2OX0.WS7jzI0jFwlBWCBBsyuu1OfUy5ge6g48TuuTWHZzzIw
 
     steps:
       - uses: actions/checkout@v2
