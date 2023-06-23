@@ -2,6 +2,9 @@ import Login from './login'
 
 export default function Home() {
   return (
-    <Login/>
+    <div>
+      <Login/>
+      <p>ZUEIRA, TROLL</p>
+    </div>
   )
 }
