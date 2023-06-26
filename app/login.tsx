@@ -51,8 +51,8 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button onClick={handleSignUp}>Sign up</button>
-        <button onClick={handleSignIn}>Sign in</button>
+        <button id="signup" onClick={handleSignUp}>Sign up</button>
+        <button id="signin" onClick={handleSignIn}>Sign in</button>
         <button onClick={handleSignOut}>Sign out</button>
         <button onClick={signInWithGoogle}>Sign in with google</button>
       </div>
