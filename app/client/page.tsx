@@ -21,7 +21,11 @@ export default function Home() {
     getData()
   }, [])
   if(!session){
-    return "Você não está logado"
+    return (
+      <h1 id="logado">Você não está logado</h1>
+    )
   }
-  return todos ? <pre>{JSON.stringify(todos, null, 2)}</pre> : <p>Loading todos...</p>
+  return (
+      todos ? <span id="vai"><pre>{JSON.stringify(todos, null, 2)}</pre></span> : <p>Loading todos...</p>
+  )
 }
