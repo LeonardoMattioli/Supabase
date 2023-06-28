@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "cypress": "^12.16.0",
+    "kill-port": "^2.0.1",
     "supabase": "^1.68.6"
   }
 }
