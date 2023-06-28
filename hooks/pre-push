@@ -1,0 +1,25 @@
+#!/bin/sh
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+MAIN="main"
+
+if [[ $BRANCH = $MAIN ]]; then
+    npx kill-port 3000
+    npx supabase start
+    npx supabase db reset
+    npm run build
+    npm start &
+    echo "Waiting nextjs to launch on 3000..."
+
+    while ! curl -I http://localhost:3000; do   
+    sleep 1 # wait for 1/10 of the second before check again
+    done
+
+    echo "nextjs launched"
+    npx cypress run
+    RESULT=$?
+    if [ "$RESULT" -ne "0" ]; then
+        echo "Seu push foi rejeitado por que o cypress falhou nos testes"
+    fi
+    npx kill-port 3000
+    exit $RESULT
+fi
